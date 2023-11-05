@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <h1>Videos</h1>
+    <ul>
+        {% for y in videos %}
+            <li><a> {{ y.user_id_id }} </a> - {{ y.video_title }} - {{ y.video_name}} - {{ y.video_ext }}</li>
+        {% empty %}
+            <li>Data Not Available</li>
+
+            {% endfor %}
+
+    </ul>
+     <p>Back to <a href="/"> Home </a></p>
+    <button> + Video </button>
+
+</body>
+</html>
