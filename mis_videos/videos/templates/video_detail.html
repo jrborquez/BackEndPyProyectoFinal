@@ -1,34 +1,40 @@
 {% extends "master.html" %}
 
 {% block title %}
-    My Videos - List of all Users
+    Employee's Videos
 {% endblock %}
 
 {% block content%}
 
-    <h1>Employee List</h1>
+<h1>Employee's Videos</h1>
         <div class="videos-list">
             <table class="table table-hover">
                 <tr>
                     <th class="col">Payroll Id</th>
-                    <th class="col">Employee Name</th>
+                    <th class="col">Title</th>
+                    <th class="col">Name</th>
+                    <th class="col">Ext</th>
                     <th class="col">Edit</th>
                     <th class="col">Delete</th>
                 </tr>
-                {% for x in users %}
+                {% for z in video_detail %}
                     <tr>
-                        <td><a href="details/{{ x.user_id }}"> {{ x.user_id }}</a></td>
-                        <td>{{ x.user_name }}</td>
-                        <td><form action="{% url 'edit_user' x.user_id %}" method="GET">{% csrf_token %}
+                        <td>{{ z.user_id }}</td>
+                        <td>{{ z.video_title }}</td>
+                        <td>{{ z.video_name }}</td>
+                        <td>{{ z.video_ext }}</td>
+                         <td><form action="{% url 'edit_video' z.id %}" method="GET">{% csrf_token %}
                             <button class="btn btn-outline-primary">Edit</button></form></td>
-                        <td><form action="{% url 'delete_user' x.user_id %}" method="GET">{% csrf_token %}
+                        <td><form action="{% url 'delete_video' z.id %}" method="GET">{% csrf_token %}
                             <button class="btn btn-outline-primary">Delete</button></form></td>
                     </tr>
                     {% empty %}
                     <tr>Data Not Available</tr>
                      {% endfor %}
             </table>
-            <p>Add <a href="/create_user">Employee</a></p>
+            <p>Add a <a href="/add_video">Video</a></p>
+            <p>Back to <a href="/videos">Videos</a></p>
             <p>Back to <a href="/">Home</a></p>
         </div>
+
 {% endblock %}

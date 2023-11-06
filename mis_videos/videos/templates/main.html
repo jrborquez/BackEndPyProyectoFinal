@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bienvenidos</title>
-</head>
-<body>
-    <h1>Welcome to Videos</h1>
-    <p>You`re all welcome</p>
-    <p>Check out Our <a href="videos/">Videos</a></p>
-    <br>
-    <p>Who are Our <a href="users/">Customers???</a></p>
-</body>
-</html>
+{% extends "master.html" %}
+
+{% block title %}
+    My Videos - Welcome to My Videos
+{% endblock %}
+
+
+{% block content%}
+    <div class="jumbotron">
+        <h1>Welcome to My Videos</h1>
+        <p>You`re all welcome</p>
+        <p>Python - Django</p>
+        <p>See who are ours <a href="users/">Employees!</a></p>
+         <br>
+        <p>Check out Our <a href="videos/">Videos</a></p>
+
+
+    </div>
+{% endblock %}
+

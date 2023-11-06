@@ -1,0 +1,29 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Adding Employee
+{% endblock %}
+
+{% block content %}
+
+<h1>Edit Employee</h1>
+
+<div class="card" style="border-radius:18px">
+    <div class="card-body text-center">
+        <form action="" method="post">
+
+                {% csrf_token %}
+                {{ form_eu.as_p }}
+
+
+            <button class="btn btn-primary" type="submit"> Submit </button>
+
+        </form>
+
+        <p>Back to <a href="/users">Employees List</a></p>
+
+    </div>
+</div>
+
+
+{% endblock %}

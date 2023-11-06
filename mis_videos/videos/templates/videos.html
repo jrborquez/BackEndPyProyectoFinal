@@ -1,22 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-     <h1>Videos</h1>
-    <ul>
-        {% for y in videos %}
-            <li><a> {{ y.user_id_id }} </a> - {{ y.video_title }} - {{ y.video_name}} - {{ y.video_ext }}</li>
-        {% empty %}
-            <li>Data Not Available</li>
+{% extends "master.html" %}
 
-            {% endfor %}
+{% block title %}
+    My Videos - List of all Videos
+{% endblock %}
 
-    </ul>
-     <p>Back to <a href="/"> Home </a></p>
-    <button> + Video </button>
+{% block content%}
 
-</body>
-</html>
+<h1>Video List</h1>
+        <div class="videos-list">
+            <table class="table table-hover">
+                <tr>
+                    <th class="col">Payroll Id</th>
+                    <th class="col">Title</th>
+                    <th class="col">Name</th>
+                    <th class="col">Ext</th>
+                    <th class="col">Edit</th>
+                    <th class="col">Delete</th>
+                </tr>
+                {% for y in videos %}
+                    <tr>
+                        <td><a href="video_detail/{{ y.user_id_id }}"> {{ y.user_id }}</a></td>
+                        <td>{{ y.video_title }}</td>
+                        <td>{{ y.video_name }}</td>
+                        <td>{{ y.video_ext }}</td>
+                        <td><form action="{% url 'edit_video' y.id %}" method="GET">{% csrf_token %}
+                            <button class="btn btn-outline-primary">Edit</button></form></td>
+                        <td><form action="{% url 'delete_video' y.id %}" method="GET">{% csrf_token %}
+                            <button class="btn btn-outline-primary">Delete</button></form></td>
+                    </tr>
+                    {% empty %}
+                    <tr>Data Not Available</tr>
+                     {% endfor %}
+            </table>
+            <p>Add a <a href="/add_video">Video</a></p>
+            <p>Back to <a href="/">Home</a></p>
+        </div>
+
+{% endblock %}

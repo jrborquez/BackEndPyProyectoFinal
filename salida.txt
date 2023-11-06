@@ -1,2 +1,3 @@
 |N23 | Jose | 2 | 
-| Locos || Locos Adams || mov || 0.0 || Naranja || Naranja Mecanica || juj || 0.1 |
+| Locos || Locos Adams || mov || 0.0 || Naranja || Naranja Mecanica || juj || 0.1 ||A20 | Jose Rojo | 3 | 
+| Clase 2 || Programacion Orientada a Objetos || mov || 3.0 || Barrer || Tecnicas de Limpieza || avi || 2.3 || Penales || Los mejores penales de la historia || mov || 0.2 |

@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "master.html" %}
 
-<h1>UserId: {{ user.user_id }}</h1>
-<h2>User Name: {{ user.user_name }}</h2>
+{% block title %}
+    User - Details
+{% endblock %}
 
-<p>Back to <a href="/users">Users</a></p>
+{% block content %}
+<div class="card" style="border-radius:18px">
+    <div class="card-body">
+        <h1 class="card-title">Employee Info</h1>
+        <h2 class="card-subtitle mb-2">Payroll Id: {{ user.user_id }}</h2>
+        <h3 class="card-subtitle mb-2">Employee: {{ user.user_name }}</h3>
+        <p>Back to <a href="/users">Employees List</a></p>
+    </div>
+<div>
 
-</body>
-</html>
+
+
+{% endblock %}
