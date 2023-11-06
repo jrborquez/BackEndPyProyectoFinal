@@ -1,8 +1,10 @@
 import re
 
-
+#OOP to create instances with Persona and Video
+#Class Persona
 class Persona:
 
+    #Constructor to init the attributes and the methods to run the app in Terminal
     def __init__(self):
         self.__user_id = self
         self.__user_name = self
@@ -11,8 +13,10 @@ class Persona:
         self.print_id()
         self.print_name()
 
+    #Method to create the id and print it
     def id_input(self):
 
+        #input and validation of attribute
         while True:
             self.__user_id = input('Employee PayRoll Id?: ')
 
@@ -23,8 +27,10 @@ class Persona:
 
         return self.__user_id
 
+    #Method to create de name and print it
     def name_input(self):
 
+        #Input and validation of attribute
         while True:
             self.__user_name = input('Employee name?: ')
             if not re.match(r"^[a-zA-Z0-9 _]+$", self.__user_name):
@@ -34,16 +40,19 @@ class Persona:
 
         return self.__user_name
 
+    #Methods to Print the attributes we created before
     def print_name(self):
         return print(self.__user_name)
 
     def print_id(self):
         return print(self.__user_id)
 
+    #Method to return the info to create the instance for later
     def persona_info(self):
         return self.__user_id, self.__user_name
 
 
+#Class for Videos instance
 class Videos:
 
     #inicializamos con el constructor, atributos y métodos para la app en terminal
@@ -63,6 +72,7 @@ class Videos:
 
     #Métodos para ingresar mediante input las variables, junto a sus validaciones:
     def video_title_input(self):
+        #Title input and validation
         while True:
             self.__video_title = input('Video Title: ')
             if not re.match(r"^[a-zA-Z0-9 _]+$", self.__video_title):
@@ -72,7 +82,9 @@ class Videos:
 
         return self.__video_title
 
+    #Method to create Name
     def video_name_input(self):
+        #Name input and validation
         while True:
             self.__video_name = input('Video Name: ')
             if not re.match(r"^[a-zA-Z0-9 _]+$", self.__video_name):
@@ -82,7 +94,9 @@ class Videos:
 
         return self.__video_name
 
+    #Method to create file extension
     def video_ext_input(self):
+        #Extension input and validation
         while True:
             self.__video_ext = input("Video Extension: ")
             if not re.match(r"^[a-zA-Z0-9 _]+$", self.__video_ext):
@@ -91,7 +105,9 @@ class Videos:
                 break
         return self.__video_ext
 
+    #Method to create file size
     def video_size_input(self):
+        #File Size input and validation
         mb = False
         while not mb:
             try:
@@ -122,6 +138,7 @@ class Videos:
     def print_size(self):
         return print(self.__video_size)
 
+    #Method to deliver attributes values
     def videos_info(self):
         return self.__video_title, self.__video_name, self.__video_ext, self.__video_size
 
@@ -130,8 +147,10 @@ class Videos:
 persona = Persona()
 video = Videos()
 
+#video list where we keep all the instances
 videos = []
 
+#Fetch the info from our instances
 info_persona = persona.persona_info()
 info_video = video.videos_info()
 
@@ -141,6 +160,7 @@ videos.append([
     info_video
     ])
 
+#iterate to make the TXT file output
 for a in videos:
     for b in a:
         for v in b:
